@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Cadastro Pessoa</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:messages />
+		<h:panelGrid columns="2">
+			<h:outputText value="Nome" />
+			<h:inputText value="#{managedBean.pessoa.nome}" />
+			<h:outputText value="Profissao" />
+			<h:inputText value="#{managedBean.pessoa.profissao}" />
+		</h:panelGrid>
+		<h:commandButton action="#{managedBean.salvar}" value="Salvar" />
+		<p />
+		Lista
+		<h:dataTable value="#{managedBean.pessoas}" var="pessoa" border="1">
+			<h:column>
+				<h:outputText value="#{pessoa.nome}" />
+			</h:column>
+			<h:column>
+				<h:outputText value="#{pessoa.profissao}" />
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</h:body>
+</html>
