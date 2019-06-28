@@ -5,7 +5,7 @@ RUN apt-get install -y maven
 COPY pom.xml /app/pom.xml
 COPY src /app/src
 WORKDIR /app
-RUN mvn clean install
+RUN mvn clean package
 
 
 FROM openjdk:8

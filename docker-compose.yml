@@ -1,7 +1,7 @@
 version: "3.5"
 services:
   db:
-    image: postgres:9.5
+    build: postgres:9.5
     environment:
       - POSTGRES_PASSWORD=passwd
       - POSTGRES_USER=rafael
@@ -10,6 +10,8 @@ services:
       - 5555:5432
   backend:
     build: back-end
+    links:
+      - db
     depends_on:
       - db
     ports:

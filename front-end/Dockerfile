@@ -1,6 +1,6 @@
 
 FROM openjdk:8 AS Builder
-MAINTAINER "https://finalexception.blogspot.com"
+LABEL key="https://finalexception.blogspot.com"
 RUN apt-get update
 RUN apt-get install -y maven
 COPY pom.xml /app/pom.xml
