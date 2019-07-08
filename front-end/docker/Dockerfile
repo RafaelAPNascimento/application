@@ -1,12 +1,12 @@
 
-FROM openjdk:8 AS Builder
+FROM maven:3.6.0-jdk-8-slim AS Builder
 LABEL key="https://finalexception.blogspot.com"
 RUN apt-get update
 RUN apt-get install -y maven
 COPY pom.xml /app/pom.xml
 COPY src /app/src
 WORKDIR /app
-RUN mvn clean install
+RUN mvn clean package
 
 FROM jboss/wildfly
 EXPOSE 8080

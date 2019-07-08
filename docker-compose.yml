@@ -1,23 +1,24 @@
 version: "3.5"
 services:
   db:
-    build: postgres:9.5
+    #image: postgres:9.5
+    build: database/docker
     environment:
       - POSTGRES_PASSWORD=passwd
       - POSTGRES_USER=rafael
       - POSTGRES_DB=bd_app
     ports:
       - 5555:5432
+  #    volumes:
+  #      - /home/rafael/docker-compose-vol:/var/lib/postgresql/data
   backend:
-    build: back-end
-    links:
-      - db
+    build: back-end/docker
     depends_on:
       - db
     ports:
       - 8989:8080
   frontend:
-    build: front-end
+    build: front-end/docker
     depends_on:
       - backend
     ports:

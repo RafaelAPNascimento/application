@@ -17,31 +17,33 @@ import com.app.backend.repository.PessoaRepository;
 @RestController
 @RequestMapping("/pessoa")
 public class PessoaController {
-	
-	@Autowired
-	PessoaRepository pessoaDao;
-	
-	@PostMapping(value = "/salvar")
-	public ResponseEntity<?> salvarPessoa(@RequestBody Pessoa pessoa) {
-				
-		try {
-			pessoa = pessoaDao.save(pessoa);
-			ResponseEntity<Pessoa> response = new ResponseEntity<>(pessoa, HttpStatus.OK);			
-			return response;
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-			ResponseEntity<String> response = new ResponseEntity<>(e.getMessage(), 
-															HttpStatus.INTERNAL_SERVER_ERROR);			
-			return response;
-		}		
-	}
-	
-	@GetMapping(value = "/todas")
-	public ResponseEntity<?> getTodas() {		
-	
-		List<Pessoa> result = pessoaDao.findAll();		
-		ResponseEntity<List<Pessoa>> response = new ResponseEntity<>(result, HttpStatus.OK);
-		return response;
-	}			
+
+	// @Autowired
+	// PessoaRepository pessoaDao;
+
+	// @PostMapping(value = "/salvar")
+	// public ResponseEntity<?> salvarPessoa(@RequestBody Pessoa pessoa) {
+
+	// try {
+	// pessoa = pessoaDao.save(pessoa);
+	// ResponseEntity<Pessoa> response = new ResponseEntity<>(pessoa,
+	// HttpStatus.OK);
+	// return response;
+	// }
+	// catch(Exception e) {
+	// e.printStackTrace();
+	// ResponseEntity<String> response = new ResponseEntity<>(e.getMessage(),
+	// HttpStatus.INTERNAL_SERVER_ERROR);
+	// return response;
+	// }
+	// }
+
+	// @GetMapping(value = "/todas")
+	// public ResponseEntity<?> getTodas() {
+
+	// List<Pessoa> result = pessoaDao.findAll();
+	// ResponseEntity<List<Pessoa>> response = new ResponseEntity<>(result,
+	// HttpStatus.OK);
+	// return response;
+	// }
 }
